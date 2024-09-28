@@ -1,0 +1,12 @@
+services:
+  db:
+    image: mongo:6.0.6
+    restart: always
+    # cuando docker ya esta corriendo con algun otro contenedor creado en el puerto 27017
+    # no se puede agregar el puerto porque genera un error.
+    # ports:
+    #   - 27017:27017
+    environment:
+      - MONGODB_DATABASE=nest-pokemon
+    volumes:
+      - ./mongo:/data/db
